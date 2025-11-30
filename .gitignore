@@ -20,6 +20,5 @@ wheels/
 
 # Other
 *.log
-*.html
 *logs/
 *results/
