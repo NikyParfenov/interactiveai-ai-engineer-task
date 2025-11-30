@@ -58,7 +58,7 @@ def visualize_graph_html(app):
                     <li><strong>validate:</strong> Validates content quality and constraints</li>
                     <li><strong>retry:</strong> Prepares feedback for regeneration if needed</li>
                 </ul>
-                <p><strong>Retry Logic:</strong> Up to {RETRY_COUNT} attempts if validation score < 0.7</p>
+                <p><strong>Retry Logic:</strong> Up to {RETRY_COUNT} attempts if validation score < 0.7 or critical issues exist</p>
             </div>
         </div>
         

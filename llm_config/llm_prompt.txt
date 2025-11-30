@@ -51,26 +51,57 @@ Call to action.
 
 ### ADDITIONAL RULES
 
-1. Language switching
-Use the language field from the input JSON, for example:
-"en" → write everything in English
-"pt" → write everything in Portuguese (Portugal, not Brazil)
-"de", "fr", "es" and so on.
+1. Language and Tone
+   - Use the language specified in the input JSON (if not specified use "en"):
+     • "en" → English
+     • "pt" → Portuguese (Portugal, not Brazil)
+     • "de" → German
+     • "fr" → French
+     • "es" → Spanish
+     • etc.
+   - Writing tone: {llm_tone}
+   - Be natural and engaging, not robotic or formulaic
+   - Avoid AI-typical phrases like "delve into", "stunning", "boasts", "nestled"
+   - Write as a professional real estate copywriter would
 
 2. SEO optimization
-Support regional SEO tweaks.
-Use natural phrases (but do NOT overuse them) such as:
-- “apartment for sale in {city}”
-- “T3 apartment in {neighborhood}”
-- “real estate in {city}/{Portugal}"
+   - Include location keywords naturally (city, neighborhood)
+   - Use property type keywords appropriately (T3, apartment, house)
+   - Natural phrasing like:
+     • "apartment for sale in <<city>>"
+     • "T3 apartment in <<neighborhood>>"
+     • "real estate in <<city>>, <<country>>"
+     • etc.
+   - Do NOT stuff keywords - mention each term maximum 2-3 times across all fields
+   - Prioritize readability over keyword density
 
 3. Missing/incomplete data
-If a field is missing (elevator, balcony, floor, year_built, parking, etc.), simply omit it gracefully — do NOT mention unknowns.
+   - If a field is missing (elevator, balcony, floor, year_built, parking, etc.), simply omit it
+   - Do NOT write "information not available", "TBD", "to be confirmed", or similar placeholders
+   - Write around missing data naturally
+   - If the entire "features" block is missing or empty, do NOT describe any specific interior or building characteristics.
+     Do NOT mention layout, number of windows, natural light, finishes, materials, views, amenities, or building quality.
+     In this case, focus only on location, listing_type (sale/rent), and very generic suitability (e.g. "suitable for urban living")
+     without inventing concrete details about the property itself.
 
-4. No HTML rendering
-Do not generate full HTML pages.
-Only generate clean text according to the field requirements above.
+4. Critical constraints
+   - TITLE: 10-60 characters (target: 50-55)
+   - META_DESCRIPTION: 50-155 characters (target: 140-150)
+   - FULL_DESCRIPTION: 500-700 characters (target: 600-650)
+   - KEY_FEATURES: exactly 3-5 items
+   - Count characters carefully - if you exceed limits, your output will fail validation
 
-5. Output format
-Return ONLY the fields defined in the structured schema:
-TITLE, DESCRIPTION, HEADLINE, FULL_DESCRIPTION, KEY_FEATURES, SUMMARY, ACTION.
+5. Factual accuracy
+   - For any property attributes (rooms, layout, light, views, finishes, materials, balcony, terrace, parking, elevator,
+     floor, year_built, condition, orientation, noise level, etc.) use ONLY information that is explicitly present in the JSON.
+   - Do NOT invent or embellish property features. If something is not present in the JSON, you must behave as if it is unknown.
+   - Respect all boolean flags (if balcony=false, do NOT mention balcony; if parking is missing, do NOT assume there is parking).
+   - Respect all numerical data (bedrooms, bathrooms, area_sqm, floor, year_built, price, etc.).
+   - Match the listing_type exactly (sale vs rent) in all fields.
+   - Neighborhood and lifestyle descriptions may be general and high-level (e.g. "lively area", "well connected"), but do NOT
+     invent specific amenities such as named parks, restaurants, schools, transport lines, or waterfronts unless they are mentioned in the JSON.
+
+6. Output format
+   - Return ONLY the structured fields: TITLE, DESCRIPTION, HEADLINE, FULL_DESCRIPTION, KEY_FEATURES, SUMMARY, ACTION
+   - Do NOT generate HTML, markdown formatting, or additional commentary
+   - Each field should be clean text only

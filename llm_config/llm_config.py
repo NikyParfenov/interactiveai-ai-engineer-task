@@ -1,7 +1,8 @@
 MODEL = "gpt-5.1"
+MODEL_TONE = "formal" # formal, friendly, luxury, investor-focused
 TEMPERATURE = 0
-MAX_HISTORY = 3
-RETRY_COUNT = 3
+MAX_HISTORY = 5
+RETRY_COUNT = 5
 
 TITLE = "Page title: short title for the page that appears in browser tab and search engine results - max 60 characters"
 META_DESCRIPTION = "Meta description: SEO snippet - max 155 characters"

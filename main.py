@@ -2,7 +2,7 @@ import os
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, Field, field_validator, model_validator
+from pydantic import BaseModel, Field
 from typing import Literal, Type, TypedDict, Annotated, Optional
 from dotenv import load_dotenv
 from loguru import logger
@@ -59,7 +59,7 @@ def create_graph():
     return workflow.compile()
 
 
-def main(input_json: dict):
+def run_pipeline(input_json: dict):
 
     logger.info("Starting SEO content generation pipeline")
     
@@ -90,11 +90,10 @@ def main(input_json: dict):
 
 
 if __name__ == "__main__":
-    # visualize_graph_html(app = create_graph())
     with open("example/input_example.json", "r", encoding="utf-8") as f:
         input_json = json.load(f)
 
-    result = main(input_json)
+    result = run_pipeline(input_json)
 
     if result["formatted_data"]:
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -105,3 +104,4 @@ if __name__ == "__main__":
         logger.error("No output generated")
 
     log_validation_report(result)
+    # visualize_graph_html(app = create_graph())

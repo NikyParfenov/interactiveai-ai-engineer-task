@@ -11,6 +11,7 @@ from llm_config.llm_config import (
     MODEL, 
     TEMPERATURE,
     MAX_HISTORY,
+    MODEL_TONE,
     )
 
 
@@ -23,9 +24,10 @@ def output_processing(state: State):
     logger.info("Starting output processing...")
     try:
         structured_llm = get_structured_llm()
-        system_prompt = get_system_prompt()
+        system_prompt = get_system_prompt().format(llm_tone=MODEL_TONE)
         recent_messages = state["messages"][-MAX_HISTORY:] if state["messages"] else []
         
+        logger.info(f"Sending {len(recent_messages)}/{len(state['messages'])} messages to LLM (MAX_HISTORY={MAX_HISTORY})")
         result = structured_llm.invoke([
             ("system", system_prompt),
             *recent_messages
