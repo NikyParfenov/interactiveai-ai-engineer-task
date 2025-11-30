@@ -310,9 +310,9 @@ InteractiveAI/
 
 ## 📄 Assumptions
 
-- One thread, no async
-- RESTAPI has only generate method, no chance to check status and get result
-- Runs locally in user environment, no containerization
+- Single-threaded execution; no async or concurrency.
+- REST API exposes only a generate endpoint; no status polling or result retrieval endpoints.
+- Application runs locally in the user’s environment; no containerization or remote deployment assumed.
 
 ---
 
