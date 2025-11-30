@@ -1,0 +1,20 @@
+{
+  "title": "Casa vacanze trilocale vicino al mare",
+  "location": {
+    "city": "Bari",
+    "neighborhood": "Palese"
+  },
+  "features": {
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "area_sqm": 85,
+    "balcony": true,
+    "parking": true,
+    "elevator": false,
+    "floor": 1,
+    "year_built": 1998
+  },
+  "price": 950,
+  "listing_type": "rent",
+  "language": "it"
+}

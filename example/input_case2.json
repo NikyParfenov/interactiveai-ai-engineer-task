@@ -1,0 +1,20 @@
+{
+  "title": "Piso de 2 habitaciones en Barcelona",
+  "location": {
+    "city": "Barcelona",
+    "neighborhood": "Eixample"
+  },
+  "features": {
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "area_sqm": 75,
+    "balcony": true,
+    "parking": false,
+    "elevator": true,
+    "floor": 4,
+    "year_built": 1978
+  },
+  "price": 1650,
+  "listing_type": "rent",
+  "language": "es"
+}

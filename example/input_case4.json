@@ -1,0 +1,20 @@
+{
+  "title": "Modern 3-bedroom townhouse in Berlin",
+  "location": {
+    "city": "Berlin",
+    "neighborhood": "Prenzlauer Berg"
+  },
+  "features": {
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "area_sqm": 140,
+    "balcony": true,
+    "parking": true,
+    "elevator": false,
+    "floor": 0,
+    "year_built": 2012
+  },
+  "price": 890000,
+  "listing_type": "sale",
+  "language": "en"
+}

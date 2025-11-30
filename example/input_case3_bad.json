@@ -1,0 +1,20 @@
+{
+  "title": "Apartamento T1 no Porto com vista rio",
+  "location": {
+    "city": "Porto",
+    "neighborhood": "Ribeira"
+  },
+  "features": {
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "area_sqm": 42,
+    "balcony": null,
+    "parking": null,
+    "elevator": false,
+    "floor": 3,
+    "year_built": null
+  },
+  "price": 210000,
+  "listing_type": "sale",
+  "language": "pt"
+}

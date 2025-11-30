@@ -1,0 +1,17 @@
+{
+  "title": "Ático dúplex con terraza en Valencia",
+  "location": {
+    "city": "Valencia",
+    "neighborhood": null
+  },
+  "features": {
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "area_sqm": 135,
+    "balcony": true,
+    "parking": true
+  },
+  "price": 1750,
+  "listing_type": "long_term_rent",
+  "language": "es"
+}

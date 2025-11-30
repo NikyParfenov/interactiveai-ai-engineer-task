@@ -1,0 +1,20 @@
+{
+  "title": "Studio rénové à Paris 11e",
+  "location": {
+    "city": "Paris",
+    "neighborhood": "11e arrondissement"
+  },
+  "features": {
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "area_sqm": 28,
+    "balcony": false,
+    "parking": false,
+    "elevator": true,
+    "floor": 5,
+    "year_built": 1905
+  },
+  "price": 320000,
+  "listing_type": "sale",
+  "language": "fr"
+}

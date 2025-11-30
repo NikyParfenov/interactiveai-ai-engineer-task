@@ -1,0 +1,19 @@
+{
+  "title": "Spacious family house near Zurich",
+  "location": {
+    "city": "Zurich"
+  },
+  "features": {
+    "bedrooms": 5,
+    "bathrooms": 4,
+    "area_sqm": 480,
+    "balcony": true,
+    "parking": true,
+    "elevator": false,
+    "floor": 0,
+    "year_built": 1985
+  },
+  "price": 2450000,
+  "listing_type": "sale",
+  "language": "en"
+}

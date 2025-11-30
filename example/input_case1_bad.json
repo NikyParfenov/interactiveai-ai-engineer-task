@@ -1,0 +1,18 @@
+{
+  "title": "Compact studio in central Warsaw",
+  "location": {
+    "city": "Warsaw",
+    "neighborhood": "Śródmieście"
+  },
+  "features": {
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "area_sqm": 18,
+    "parking": false,
+    "elevator": true,
+    "floor": 7
+  },
+  "price": 950,
+  "listing_type": "rent",
+  "language": "en"
+}

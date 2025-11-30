@@ -1,0 +1,20 @@
+{
+  "title": "Moradia T4 com piscina em Cascais",
+  "location": {
+    "city": "Cascais",
+    "neighborhood": "Birre"
+  },
+  "features": {
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "area_sqm": 280,
+    "balcony": true,
+    "parking": true,
+    "elevator": false,
+    "floor": 0,
+    "year_built": 2015
+  },
+  "price": 1250000,
+  "listing_type": "sale",
+  "language": "pt"
+}
