@@ -95,7 +95,7 @@ Optimizes content for search engines:
 
 LLM-powered validation of content accuracy:
 
-Uses a separate GPT-4o-mini instance to verify:
+Uses a separate GPT-4o instance to verify:
 
 - **Fabricated Features** (critical): No invented amenities or details
 - **Incorrect Numbers** (critical): Validates bedrooms, bathrooms, sqft, price
@@ -308,11 +308,19 @@ InteractiveAI/
 - ✅ Keyword optimization without stuffing
 - ✅ Natural, non-AI-sounding text
 
-## 📄 Assumptions
+## 📄 Assumptions & Future Improvements
 
+Assumptions
 - Single-threaded execution; no async or concurrency.
 - REST API exposes only a generate endpoint; no status polling or result retrieval endpoints.
 - Application runs locally in the user’s environment; no containerization or remote deployment assumed.
+
+Future Improvements
+- Introduce async processing or background task execution (e.g., Celery, Redis, asyncio).
+- Add job status polling and result retrieval endpoints.
+- Provide Dockerfile/docker-compose for reproducible environments.
+- Set up CI/CD pipeline with automated formatting (Ruff/Black), linting, and tests.
+- Add unit/integration tests and coverage reports.
 
 ---
 
