@@ -215,6 +215,7 @@ InteractiveAI/
 ├── content_generation.py       # LLM content generation logic
 ├── content_validation.py       # 4-layer validation system
 ├── models.py                   # Pydantic data models
+├── .env.example                # Example of env variables
 ├── llm_config/
 │   ├── llm_config.py          # LLM configuration
 │   ├── llm_prompt.txt         # Generation prompt template
@@ -237,8 +238,8 @@ InteractiveAI/
 ## 🔧 Configuration
 
 ### LLM Settings
-- **Generation Model**: GPT-4 (configurable in `llm_config/llm_config.py`)
-- **Validation Model**: GPT-4o-mini (configurable in `validation_config/valid_config.py`)
+- **Generation Model**: GPT-5 (configurable in `llm_config/llm_config.py`)
+- **Validation Model**: GPT-4o (configurable in `validation_config/valid_config.py`)
 - **Temperature**: 0.7 for generation, 0 for validation
 - **Max Retries**: 3 attempts
 
@@ -307,13 +308,11 @@ InteractiveAI/
 - ✅ Keyword optimization without stuffing
 - ✅ Natural, non-AI-sounding text
 
-## 📄 License
+## 📄 Assumptions
 
-[Your License Here]
-
-## 👥 Contributors
-
-[Your Name/Team Here]
+- One thread, no async
+- RESTAPI has only generate method, no chance to check status and get result
+- Runs locally in user environment, no containerization
 
 ---
 
