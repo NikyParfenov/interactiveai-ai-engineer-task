@@ -14,7 +14,7 @@ InteractiveAI is a production-ready system that transforms structured property d
 - **LLM-Based Consistency Checking**: Validates content accuracy against input data
 - **RESTful API**: FastAPI-based backend for integration
 - **Interactive UI**: Streamlit interface for easy testing and visualization
-- **Production Logging**: Structured logging with rotation and compression
+- **Production Logging**: Structured logging with rotation and compression + LangSmith monitoring
 
 ## 🏗️ Architecture
 

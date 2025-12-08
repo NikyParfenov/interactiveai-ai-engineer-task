@@ -95,10 +95,10 @@ if __name__ == "__main__":
 
     result = run_pipeline(input_json)
 
-    if result["formatted_data"]:
+    if result.get("formatted_data"):
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
         path = f"results/{ts}_output.html"
-        save_result_html(result["formatted_data"], path=path)
+        save_result_html(result.get("formatted_data"), path=path)
         logger.success(f"Result saved to '{path}'")
     else:
         logger.error("No output generated")
