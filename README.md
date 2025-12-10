@@ -153,26 +153,41 @@ uv sync
 
 ### Running the System
 
-The system consists of two components that need to run simultaneously:
+The system consists of two components: **API Backend** (FastAPI) and **UI Frontend** (Streamlit).  
+You can run them either via Docker or locally.
 
-#### 1. Start the API Backend
+---
+
+#### Option A: Docker (Recommended)
+
+```bash
+docker compose up --build
+```
+
+This starts both services:
+- **API**: `http://localhost:8001`
+- **UI**: `http://localhost:8501`
+
+---
+
+#### Option B: Local Environment
+
+Run both components in separate terminals:
+
+**1. Start the API Backend**
 
 ```bash
 uv run uvicorn api:app --reload --port 8001
 ```
 
-This starts the FastAPI server on `http://localhost:8001`
-
 **API Endpoints:**
 - `GET /health`: Health check
 - `POST /generate`: Generate content from JSON
 
-#### 2. Start the UI Frontend
-
-In a separate terminal:
+**2. Start the UI Frontend**
 
 ```bash
-streamlit run ui.py
+uv run streamlit run ui.py
 ```
 
 This launches the Streamlit interface at `http://localhost:8501`
@@ -214,8 +229,12 @@ InteractiveAI/
 ├── main.py                     # Pipeline orchestration
 ├── content_generation.py       # LLM content generation logic
 ├── content_validation.py       # 4-layer validation system
+├── .env.example                # Example of .env file
 ├── models.py                   # Pydantic data models
-├── .env.example                # Example of env variables
+├── Dockerfile                  # Docker image configuration
+├── docker-compose.yml          # Docker Compose services
+├── pyproject.toml              # Project dependencies (UV/pip)
+├── uv.lock                     # Locked dependency versions
 ├── llm_config/
 │   ├── llm_config.py          # LLM configuration
 │   ├── llm_prompt.txt         # Generation prompt template
@@ -229,10 +248,12 @@ InteractiveAI/
 │   └── analysis.py            # Graph visualization
 ├── example/
 │   ├── input_example.json     # Sample input
+│   ├── input_case*.json       # Test cases (valid inputs)
+│   ├── input_case*_bad.json   # Test cases (invalid inputs)
 │   └── example.html           # Sample output
 ├── results/                    # Generated HTML outputs
 ├── logs/                       # Application logs
-└── workflow_graph.html        # Visual pipeline diagram
+└── workflow_graph.html         # Visual pipeline diagram
 ```
 
 ## 🔧 Configuration
@@ -313,12 +334,10 @@ InteractiveAI/
 Assumptions
 - Single-threaded execution; no async or concurrency.
 - REST API exposes only a generate endpoint; no status polling or result retrieval endpoints.
-- Application runs locally in the user’s environment; no containerization or remote deployment assumed.
 
 Future Improvements
 - Introduce async processing or background task execution (e.g., Celery, Redis, asyncio).
 - Add job status polling and result retrieval endpoints.
-- Provide Dockerfile/docker-compose for reproducible environments.
 - Set up CI/CD pipeline with automated formatting (Ruff/Black), linting, and tests.
 - Add unit/integration tests and coverage reports.
 

@@ -59,7 +59,7 @@ def create_graph():
     return workflow.compile()
 
 
-def run_pipeline(input_json: dict):
+def run_pipeline(input_json: dict, save_output: bool = False):
 
     logger.info("Starting SEO content generation pipeline")
     
@@ -80,6 +80,15 @@ def run_pipeline(input_json: dict):
         logger.info(f"Warnings: {validation['warnings']}")
     
     logger.info(f"Total retries: {result.get('retry_count', 0)}/{RETRY_COUNT}")
+
+    if save_output:
+        if result.get("formatted_data"):
+            ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+            path = f"results/{ts}_output.html"
+            save_result_html(result.get("formatted_data"), path=path)
+            logger.success(f"Result saved to '{path}'")
+        else:
+            logger.error("No output generated")
     
     return {
         "struct_data": result.get("structured_data"),
@@ -93,15 +102,7 @@ if __name__ == "__main__":
     with open("example/input_example.json", "r", encoding="utf-8") as f:
         input_json = json.load(f)
 
-    result = run_pipeline(input_json)
-
-    if result.get("formatted_data"):
-        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-        path = f"results/{ts}_output.html"
-        save_result_html(result.get("formatted_data"), path=path)
-        logger.success(f"Result saved to '{path}'")
-    else:
-        logger.error("No output generated")
+    result = run_pipeline(input_json, save_output=True)
 
     log_validation_report(result)
     # visualize_graph_html(app = create_graph())

@@ -1,8 +1,9 @@
+import os
 import json
 import requests
 import streamlit as st
 
-API_URL = "http://localhost:8001/generate"
+API_URL = os.getenv("API_URL", "http://localhost:8001/generate")
 
 
 st.set_page_config(page_title="InteractiveAI Property Generator", layout="wide")
