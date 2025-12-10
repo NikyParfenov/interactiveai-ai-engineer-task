@@ -236,21 +236,21 @@ InteractiveAI/
 ├── pyproject.toml              # Project dependencies (UV/pip)
 ├── uv.lock                     # Locked dependency versions
 ├── llm_config/
-│   ├── llm_config.py          # LLM configuration
-│   ├── llm_prompt.txt         # Generation prompt template
-│   └── output_template.py     # HTML template
+│   ├── llm_config.py           # LLM configuration
+│   ├── llm_prompt.txt          # Generation prompt template
+│   └── output_template.py      # HTML template
 ├── validation_config/
-│   ├── valid_config.py        # Validation configuration
-│   ├── llm_valid_prompt.txt   # Consistency check prompt
-│   └── valid_lang_phrases.py  # Language-specific validation rules
+│   ├── valid_config.py         # Validation configuration
+│   ├── llm_valid_prompt.txt    # Consistency check prompt
+│   └── valid_lang_phrases.py   # Language-specific validation rules
 ├── utils/
-│   ├── file_system.py         # File operations
-│   └── analysis.py            # Graph visualization
+│   ├── file_system.py          # File operations
+│   └── analysis.py             # Graph visualization
 ├── example/
-│   ├── input_example.json     # Sample input
-│   ├── input_case*.json       # Test cases (valid inputs)
-│   ├── input_case*_bad.json   # Test cases (invalid inputs)
-│   └── example.html           # Sample output
+│   ├── input_example.json      # Sample input
+│   ├── input_case*.json        # Valid inputs used for normal pipeline operation
+│   ├── input_case*_bad.json    # Stress-test inputs with missing information
+│   └── example.html            # Sample output
 ├── results/                    # Generated HTML outputs
 ├── logs/                       # Application logs
 └── workflow_graph.html         # Visual pipeline diagram
